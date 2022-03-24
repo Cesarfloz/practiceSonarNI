@@ -1,0 +1,22 @@
+trigger:
+  - main
+  - dev
+  
+jobs:
+- job: CI
+  displayName: Countinius Integration
+  pool:
+    vmImage: 'ubuntu-latest' 
+  steps:
+  - task: UsePythonVersion@0
+    displayName: 'Use Python 3.10.3'
+    inputs:
+      versionSpec: '3.10.3'
+  - script: |
+      ls
+      pip install -r requirements.txt    
+    displayName: 'Install dependencies'
+
+  - script: |
+      pytest
+    displayName: 'unit Test'
