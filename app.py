@@ -26,4 +26,4 @@ def suma(num1,num2):
     return num1+num2   
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=5000, debug=True)
